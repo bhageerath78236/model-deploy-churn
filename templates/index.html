@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Webpage</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        button{
+            background-color: aqua;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Churn Predictor</h1>
+
+    <form method="post" action="/predict">
+        <textarea name="content" placeholder="enter data" rows ="15" cols="35">
+            {{email}}</textarea>
+        <div>
+            <button type="submit">
+                check churn
+            </button>
+            <a href="/">Reset</a>
+        </div>
+    </form>
+    <div>
+        {% if prediction %}
+        {% if prediction == 1 %}
+        <h2 style="color: red">Spam</h2>
+        {% else %}
+        <h2 style="color: green">Not Spam</h2>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
